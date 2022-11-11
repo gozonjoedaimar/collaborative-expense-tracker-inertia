@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +15,9 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
+// Dashboard
 Route::get('/', [DashboardController::class, 'index']);
+
+// New
+Route::get('/add/income', [NewController::class, 'index']);
+Route::get('/add/expense', [NewController::class, 'index']);

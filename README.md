@@ -1,1 +1,1 @@
-# family-expense-tracker-inertia
+# collaborative-expense-tracker-inertia

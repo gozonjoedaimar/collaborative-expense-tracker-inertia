@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Illuminate\Support\Facades\Route;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -36,8 +37,11 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $uri = Route::getCurrentRoute()->uri();
+
         return array_merge(parent::share($request), [
             //
+            'active_route' => $uri === '/' ? $uri: '/' . $uri
         ]);
     }
 }
