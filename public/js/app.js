@@ -2199,16 +2199,16 @@ function DistractFreeLayout(_ref2) {
 
 /***/ }),
 
-/***/ "./resources/js/Shared/Navigation.js":
-/*!*******************************************!*\
-  !*** ./resources/js/Shared/Navigation.js ***!
-  \*******************************************/
+/***/ "./resources/js/Shared/NavLinks.js":
+/*!*****************************************!*\
+  !*** ./resources/js/Shared/NavLinks.js ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Navigation)
+/* harmony export */   "default": () => (/* binding */ NavLinks)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -2227,7 +2227,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function Navigation() {
+
+function NavLinks(_ref) {
+  var menu = _ref.menu,
+    items = _ref.items;
   var active_route = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.active_route;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       show: false
@@ -2240,15 +2243,11 @@ function Navigation() {
       show: !nav.show
     }));
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("nav", {
-    className: "bg-amber-300 text-black flex justify-between p-3",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "app-name",
-      children: "Collaborative Expense Tracker"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
       onClick: toggleNav,
       className: "sm:hidden",
-      children: "Menu"
+      children: menu
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "bg-red-500 absolute h-full w-full -m-3 flex flex-col justify-center\n        ".concat(nav.show ? "" : "hidden", "\n        sm:static sm:flex sm:flex-row sm:h-auto sm:w-auto sm:m-0\n        ").cn(),
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
@@ -2257,11 +2256,11 @@ function Navigation() {
         children: "Close"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
         className: "w-1/2 mx-auto text-center underline sm:w-auto sm:flex sm:space-x-2",
-        children: [["Dashboard", "/", 1], ["Income", "/add/income", 2], ["Expense", "/add/expense", 3]].map(function (_ref) {
-          var _ref2 = _slicedToArray(_ref, 3),
-            text = _ref2[0],
-            href = _ref2[1],
-            key = _ref2[2];
+        children: items.map(function (_ref2) {
+          var _ref3 = _slicedToArray(_ref2, 3),
+            text = _ref3[0],
+            href = _ref3[1],
+            key = _ref3[2];
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
               href: href,
@@ -2271,6 +2270,40 @@ function Navigation() {
           }, key);
         })
       })]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Shared/Navigation.js":
+/*!*******************************************!*\
+  !*** ./resources/js/Shared/Navigation.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Navigation)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _NavLinks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NavLinks */ "./resources/js/Shared/NavLinks.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function Navigation() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("nav", {
+    className: "bg-amber-300 text-black flex justify-between p-3",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "app-name",
+      children: "Collaborative Expense Tracker"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_NavLinks__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      menu: "Menu 1",
+      items: [["Dashboard", "/", 1], ["Income", "/add/income", 2], ["Expense", "/add/expense", 3]]
     })]
   });
 }
