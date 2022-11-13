@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\NewController;
+use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\ExpenseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,5 @@ use App\Http\Controllers\NewController;
 Route::get('/', [DashboardController::class, 'index']);
 
 // New
-Route::get('/add/income', [NewController::class, 'index']);
-Route::get('/add/expense', [NewController::class, 'index']);
+Route::get('/add/income', [IncomeController::class, 'index']);
+Route::get('/add/expense', [ExpenseController::class, 'index']);
