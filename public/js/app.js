@@ -2170,28 +2170,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "DistractFreeLayout": () => (/* binding */ DistractFreeLayout),
 /* harmony export */   "SummaryLayout": () => (/* binding */ SummaryLayout)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Navigation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navigation.js */ "./resources/js/Shared/Navigation.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Navigation_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Navigation.js */ "./resources/js/Shared/Navigation.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 
 function SummaryLayout(_ref) {
   var children = _ref.children;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "summary-layout bg-slate-500 text-white",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Navigation_js__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "summary-layout",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Navigation_js__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "content p-5",
       children: children
     })]
   });
 }
 function DistractFreeLayout(_ref2) {
   var children = _ref2.children;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "distract-free-layout bg-red-300",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Navigation_js__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "distract-free-layout",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Navigation_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+        href: "/",
+        className: "",
+        as: "button",
+        type: "button",
+        children: "Cancel"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "content p-5",
       children: children
     })]
   });
@@ -2249,13 +2261,13 @@ function NavLinks(_ref) {
       className: "sm:hidden",
       children: menu
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "bg-red-500 absolute h-full w-full -m-3 flex flex-col justify-center\n        ".concat(nav.show ? "" : "hidden", "\n        sm:static sm:flex sm:flex-row sm:h-auto sm:w-auto sm:m-0\n        ").cn(),
+      className: "bg-red-500 absolute h-full w-full -m-3 flex flex-col justify-center\n        ".concat(nav.show ? "" : "hidden", "\n        sm:static sm:flex sm:flex-row sm:h-auto sm:w-auto sm:m-0 sm:bg-transparent\n        ").cn(),
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
         onClick: toggleNav,
         className: "absolute right-2 top-2 sm:hidden",
         children: "Close"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-        className: "w-1/2 mx-auto text-center underline sm:w-auto sm:flex sm:space-x-2",
+        className: "w-1/2 mx-auto space-y-5 text-center underline sm:w-auto sm:flex sm:space-x-2 sm:space-y-0",
         children: items.map(function (_ref2) {
           var _ref3 = _slicedToArray(_ref2, 3),
             text = _ref3[0],
@@ -2291,20 +2303,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _NavLinks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NavLinks */ "./resources/js/Shared/NavLinks.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 
 
 
-function Navigation() {
+function Navigation(_ref) {
+  var children = _ref.children;
+  function getNavLinks(children) {
+    if (_typeof(children) === 'object') {
+      return children;
+    } else {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_NavLinks__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        menu: "Menu",
+        items: [
+        // ["Dashboard", "/", 1],
+        ["+Income", "/add/income", 2], ["+Expense", "/add/expense", 3]]
+      });
+    }
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("nav", {
-    className: "bg-amber-300 text-black flex justify-between p-3",
+    className: "flex justify-between p-3 bg-blue-500 shadow-md text-white",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "app-name",
       children: "Collaborative Expense Tracker"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_NavLinks__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      menu: "Menu",
-      items: [["Dashboard", "/", 1], ["Income", "/add/income", 2], ["Expense", "/add/expense", 3]]
-    })]
+    }), getNavLinks(children)]
   });
 }
 
