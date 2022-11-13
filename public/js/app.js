@@ -2302,7 +2302,7 @@ function Navigation() {
       className: "app-name",
       children: "Collaborative Expense Tracker"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_NavLinks__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      menu: "Menu 1",
+      menu: "Menu",
       items: [["Dashboard", "/", 1], ["Income", "/add/income", 2], ["Expense", "/add/expense", 3]]
     })]
   });
