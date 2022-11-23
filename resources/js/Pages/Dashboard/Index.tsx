@@ -1,8 +1,12 @@
 import React from 'react'
-import { SummaryLayout as Layout } from "../../Shared/Layout.js";
+import { SummaryLayout as Layout } from "../../Shared/Layout";
 import { Head } from '@inertiajs/inertia-react'
 
-export default function Index({ message }) {
+type IndexProps = {
+  message: string;
+}
+
+export default function Index({ message }:IndexProps) {
   return (
     <Layout>
       <Head title='Dashboard' />

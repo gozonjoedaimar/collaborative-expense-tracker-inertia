@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link, usePage } from "@inertiajs/inertia-react";
 
-export default function NavLinks({ menu, items }) {
+
+
+export default function NavLinks({ menu, items }:{ menu:string; items:[string, string, number][] }) {
   const {active_route} = usePage().props;
   const [nav, setNav] = useState({ show: false });
 
@@ -16,8 +18,9 @@ export default function NavLinks({ menu, items }) {
         sm:static sm:flex sm:flex-row sm:h-auto sm:w-auto sm:m-0 sm:bg-transparent
         `.cn()}>
         <button onClick={toggleNav} className="absolute right-2 top-2 sm:hidden">Close</button>
-        <ul className="w-1/2 mx-auto space-y-5 text-center underline sm:w-auto sm:flex sm:space-x-2 sm:space-y-0">
-          {items.map(([text, href, key]) => {
+        <ul className="w-1/2 mx-auto space-y-5 text-center sm:w-auto sm:flex sm:space-x-2 sm:space-y-0">
+          {items.map(function (item) {
+            let [text, href, key] = item;
             return (
               <li key={key}>
                 <Link
