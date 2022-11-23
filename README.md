@@ -13,6 +13,10 @@
     # DB_USERNAME=root
     # DB_PASSWORD=
 
+### Create sqlite database
+
+    $ touch ./database/database.sqlite
+
 ### Install dependencies
 
     $ composer install
