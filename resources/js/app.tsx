@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from '@inertiajs/inertia-react';
 import { InertiaProgress } from '@inertiajs/progress';
+import { SummaryLayout as Layout } from "./Shared/Layout";
 
 InertiaProgress.init();
 
@@ -28,13 +29,15 @@ const resolver = (name: string) => import(`./Pages/${name}`).then((module) => {
   //   return page;
   // }
 
-  // if (page.layout === undefined) {
-  //   page.layout = (page: any) => <AppLayout children={page}/>;
-  // }
+  if (page.layout === undefined) {
+    page.layout = (page: React.ReactNode) => <Layout>{page}</Layout>;
+  }
 
-  return page;
+  return page
 });
+
+const titleCallback = (title: string) => title + " - " + "Collaborative Expense Tracker";
 
 let root = createRoot(app);
 
-root.render(<App initialPage={init} resolveComponent={resolver} initialComponent={require('./LoadingScreen').default} />);
+root.render(<App titleCallback={titleCallback} initialPage={init} resolveComponent={resolver} initialComponent={require('./LoadingScreen').default} />);
