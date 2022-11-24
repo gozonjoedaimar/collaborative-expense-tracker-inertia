@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Link, usePage } from "@inertiajs/inertia-react";
 
+interface navLinksProps {
+  menu:string;
+  items:[React.ReactNode, string, number][]
+}
 
-
-export default function NavLinks({ menu, items }:{ menu:string; items:[string, string, number][] }) {
+export default function NavLinks({ menu, items }:navLinksProps) {
   const {active_route} = usePage().props;
   const [nav, setNav] = useState({ show: false });
 
@@ -27,7 +30,7 @@ export default function NavLinks({ menu, items }:{ menu:string; items:[string, s
                   href={href}
                   className={`
                     nav-link-item
-                    some-class-item
+                    whitespace-nowrap
                     ${active_route === href ? "font-bold": ""}
                   `.cn()}
                 >

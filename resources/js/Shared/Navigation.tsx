@@ -1,5 +1,7 @@
 import React, { ReactNode } from "react";
 import NavLinks from "./NavLinks";
+import { BsCashCoin } from "react-icons/bs";
+import { RiHandCoinFill } from "react-icons/ri";
 
 type NavigationProps = {
   children?: ReactNode;
@@ -16,8 +18,8 @@ export default function Navigation({ children, className }:NavigationProps) {
       return <NavLinks
         menu="Menu"
         items={[
-          ["+Income", "/add/income", 1],
-          ["+Expense", "/add/expense", 2],
+          [<><BsCashCoin className="inline mr-2" />Income</>, "/add/income", 1],
+          [<><RiHandCoinFill className="inline mr-2" />Expense</>, "/add/expense", 2],
         ]}
       />
     }
