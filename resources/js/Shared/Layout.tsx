@@ -16,9 +16,9 @@ const Config = ({className, children}:LayoutProps) => (
   </div>
 );
 
-export function SummaryLayout({ children }:LayoutProps) {
+export function DashboardLayout({ children }:LayoutProps) {
   return (
-    <Config className="summary-layout">
+    <Config className="dashboard-layout">
       <Navigation />
       <div className="content p-5">{children}</div>
     </Config>
@@ -28,10 +28,18 @@ export function SummaryLayout({ children }:LayoutProps) {
 export function DistractFreeLayout({ children }:LayoutProps) {
   return (
     <Config className="distract-free-layout">
-      <Navigation className="text-red-600">
+      <Navigation>
         <Link href="/" className="" as="button" type="button">Cancel</Link>
       </Navigation>
       <div className="content p-5">{children}</div>
     </Config>
   );
+}
+
+export function SessionLayout({ children }:LayoutProps) {
+  return (
+    <Config className="session-layout">
+      { children }
+    </Config>
+  )
 }

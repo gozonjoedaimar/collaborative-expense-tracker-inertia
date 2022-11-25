@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from '@inertiajs/inertia-react';
 import { InertiaProgress } from '@inertiajs/progress';
-import { SummaryLayout as Layout } from "./Shared/Layout";
+import { DashboardLayout as Layout } from "./Shared/Layout";
 
 InertiaProgress.init();
 
