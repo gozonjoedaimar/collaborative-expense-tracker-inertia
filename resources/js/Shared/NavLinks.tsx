@@ -3,7 +3,7 @@ import { Link, usePage } from "@inertiajs/inertia-react";
 
 interface navLinksProps {
   menu:string;
-  items:[React.ReactNode, string, number][]
+  items:[React.ReactNode, string, number, string?][]
 }
 
 export default function NavLinks({ menu, items }:navLinksProps) {
@@ -23,7 +23,18 @@ export default function NavLinks({ menu, items }:navLinksProps) {
         <button onClick={toggleNav} className="absolute right-2 top-2 sm:hidden">Close</button>
         <ul className="w-1/2 mx-auto space-y-5 text-center sm:w-auto sm:flex sm:space-x-2 sm:space-y-0">
           {items.map(function (item) {
-            let [text, href, key] = item;
+            let [text, href, key, method] = item;
+
+            let postProps = {};
+
+            if (method && method == 'post') {
+              postProps = {
+                method,
+                as: "button",
+                type: "button"
+              }
+            }
+
             return (
               <li key={key}>
                 <Link
@@ -33,6 +44,7 @@ export default function NavLinks({ menu, items }:navLinksProps) {
                     whitespace-nowrap
                     ${active_route === href ? "font-bold": ""}
                   `.cn()}
+                  {...postProps}
                 >
                   {text}
                 </Link>

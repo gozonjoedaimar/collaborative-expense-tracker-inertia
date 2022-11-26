@@ -7,12 +7,12 @@ type IndexProps = {
 }
 
 const Index = ({ types }:IndexProps) => (
-  <>
+  <Layout>
     <Head title="Add" />
     <p>Add {JSON.stringify(types)}</p>
-  </>
+  </Layout>
 )
 
-Index.layout = (page: React.ReactNode) => <Layout>{page}</Layout>;
+// Index.layout = (page: React.ReactNode) => <Layout>{page}</Layout>;
 
 export default Index;

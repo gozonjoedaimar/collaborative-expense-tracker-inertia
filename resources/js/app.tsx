@@ -29,9 +29,9 @@ const resolver = (name: string) => import(`./Pages/${name}`).then((module) => {
   //   return page;
   // }
 
-  if (page.layout === undefined) {
-    page.layout = (page: React.ReactNode) => <Layout>{page}</Layout>;
-  }
+  // if (page.layout === undefined) {
+  //   page.layout = (page: React.ReactNode) => <Layout>{page}</Layout>;
+  // }
 
   return page
 });

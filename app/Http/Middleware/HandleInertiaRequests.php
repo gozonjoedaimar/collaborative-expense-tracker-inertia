@@ -41,7 +41,12 @@ class HandleInertiaRequests extends Middleware
 
         return array_merge(parent::share($request), [
             //
-            'active_route' => $uri === '/' ? $uri: '/' . $uri
+            'appName' => config('app.name'),
+            'auth.user' => fn () => $request->user() ? $request->user()->only('id', 'name', 'email'): null,
+            'active_route' => $uri === '/' ? $uri: '/' . $uri,
+            'flash' => [
+                'notification' => fn () => $request->session()->get('notification')
+            ],
         ]);
     }
 }
