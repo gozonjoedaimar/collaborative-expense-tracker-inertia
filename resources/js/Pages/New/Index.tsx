@@ -13,6 +13,4 @@ const Index = ({ types }:IndexProps) => (
   </Layout>
 )
 
-// Index.layout = (page: React.ReactNode) => <Layout>{page}</Layout>;
-
 export default Index;

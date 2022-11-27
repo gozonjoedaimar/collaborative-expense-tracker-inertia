@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Link, usePage } from "@inertiajs/inertia-react";
 
 interface navLinksProps {
-  menu:string;
+  menuName:string;
   items:[React.ReactNode, string, number, string?][]
 }
 
-export default function NavLinks({ menu, items }:navLinksProps) {
+export default function NavLinks({ menuName, items }:navLinksProps) {
   const {active_route} = usePage().props;
   const [nav, setNav] = useState({ show: false });
 
@@ -15,7 +15,7 @@ export default function NavLinks({ menu, items }:navLinksProps) {
   };
   return  (
     <>
-      <button onClick={toggleNav} className="sm:hidden">{menu}</button>
+      <button onClick={toggleNav} className="sm:hidden">{menuName}</button>
       <div className={`bg-red-500 absolute h-full w-full -m-3 flex flex-col justify-center
         ${ nav.show ? "": "hidden" }
         sm:static sm:flex sm:flex-row sm:h-auto sm:w-auto sm:m-0 sm:bg-transparent
@@ -27,6 +27,7 @@ export default function NavLinks({ menu, items }:navLinksProps) {
 
             let postProps = {};
 
+            // set link as button for post method link
             if (method && method == 'post') {
               postProps = {
                 method,

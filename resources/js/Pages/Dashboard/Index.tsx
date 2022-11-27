@@ -11,7 +11,7 @@ function showToast () {
   toast.success("Hey");
 }
 
-export default function Index({ message }:IndexProps) {
+const Index = function({ message }:IndexProps) {
   return (
     <Layout>
       <Head title='Dashboard' />
@@ -19,3 +19,5 @@ export default function Index({ message }:IndexProps) {
     </Layout>
   )
 }
+
+export default Index;

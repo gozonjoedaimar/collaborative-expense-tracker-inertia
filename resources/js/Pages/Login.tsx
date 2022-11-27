@@ -52,6 +52,4 @@ const Login = () => {
 
 }
 
-// Login.layout = (page: React.ReactNode) => <>{page}</>;
-
 export default Login;

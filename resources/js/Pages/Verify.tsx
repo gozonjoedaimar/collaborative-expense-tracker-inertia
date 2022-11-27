@@ -10,6 +10,4 @@ const Verify = () => (
   </Layout>
 )
 
-// Verify.layout = (page: React.ReactNode) => <>{page}</>;
-
 export default Verify;

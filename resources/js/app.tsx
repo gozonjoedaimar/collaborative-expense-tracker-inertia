@@ -2,10 +2,11 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from '@inertiajs/inertia-react';
 import { InertiaProgress } from '@inertiajs/progress';
-import { DashboardLayout as Layout } from "./Shared/Layout";
+// import { DashboardLayout as Layout } from "./Shared/Layout";
 
 InertiaProgress.init();
 
+// declare string class extend
 declare global {
   interface String {
     cn(): string;

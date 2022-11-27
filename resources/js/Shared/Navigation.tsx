@@ -17,7 +17,7 @@ export default function Navigation({ children, className }:NavigationProps) {
     }
     else {
       return <NavLinks
-        menu="Menu"
+        menuName="Menu"
         items={[
           [<><BsCashCoin className="inline mr-2" />Income</>, "/add/income", 1],
           [<><RiHandCoinFill className="inline mr-2" />Expense</>, "/add/expense", 2],
