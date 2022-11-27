@@ -13,6 +13,7 @@ class UserController extends Controller
 {
     /**
      * Handle an authentication attempt.
+     * POST /login
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -38,6 +39,12 @@ class UserController extends Controller
         ])->onlyInput('email');
     }
 
+    /**
+     * Login page
+     * GET /login
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index() {
         if (! Auth::check()) {
             return Inertia::render('Login');
@@ -50,10 +57,23 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * Register page
+     * GET /register
+     * 
+     * @return \Illuminate\Http\Response
+     */
     public function create() {
         return Inertia::render('Register');
     }
 
+    /**
+     * Handle user creation
+     * POST /register
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function save(Request $request) {
         $credentials = $request->validate([
             'name' => ['required'],
@@ -76,6 +96,12 @@ class UserController extends Controller
         ]);
     }
 
+    /**
+     * Verify notification page
+     * GET /email/verify
+     * 
+     * @return \Illuminate\Http\Response
+     */
     public function verify() {
         if ( ! Auth::user()->hasVerifiedEmail()) {
             return Inertia::render('Verify');
@@ -88,6 +114,13 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * Verify email
+     * GET /email/verify/{id}/{hash}
+     * 
+     * @param \Illuminate\Foundation\Auth\EmailVerificationRequest $request
+     * @return \Illuminate\Http\Response
+     */
     public function handleVerify (EmailVerificationRequest $request) {
         $request->fulfill();
         return redirect('/dashboard')->with('notification', [
@@ -96,12 +129,26 @@ class UserController extends Controller
         ]);
     }
 
+    /**
+     * Resend email verification
+     * POST /email/verification-notification
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function resendVerify (Request $request) {
         $request->user()->sendEmailVerificationNotification();
         
         return back()->with('notification', ['message' => 'Verification link sent!']);
     }
 
+    /**
+     * Logout user
+     * POST /logout
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function logout(Request $request)
     {
         Auth::logout();
