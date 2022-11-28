@@ -43,6 +43,10 @@ Route::middleware(['auth','verified'])->group(function() {
   Route::get('/', fn() => redirect()->route('dashboard') );
   
   // New
+  // Income
+  Route::post('/add/income', [IncomeController::class, 'save'])->name('add.income');
   Route::get('/add/income', [IncomeController::class, 'index'])->name('add.income');
+  // Expense
+  Route::post('/add/expense', [ExpenseController::class, 'save'])->name('add.expense.save');
   Route::get('/add/expense', [ExpenseController::class, 'index'])->name('add.expense');
 });

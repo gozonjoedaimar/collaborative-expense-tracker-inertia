@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Expense;
 
 class ExpenseController extends Controller
 {
@@ -13,7 +14,30 @@ class ExpenseController extends Controller
      */
     public function index() {
         return Inertia::render('New/Index', [
-            'types' => ['expense']
+            'type' => 'expense'
           ]);
+    }
+
+    /**
+     * Save expense
+     * POST /add/expense
+     * 
+     * @param \Illuminate\Http\Request
+     */
+    public function save(Request $request) {
+        $amount = $request->validate([
+            'amount' => ['required','numeric'],
+        ]);
+
+        $expense = new Expense();
+
+        $expense->fill($amount);
+
+        $expense->save();
+
+        return redirect()->route('dashboard')->with('notification', [
+            'type' => 'success',
+            'message' => 'Expense added'
+        ]);
     }
 }
