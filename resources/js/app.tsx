@@ -41,4 +41,8 @@ const titleCallback = (title: string) => title + " - " + "Collaborative Expense 
 
 let root = createRoot(app);
 
-root.render(<App titleCallback={titleCallback} initialPage={init} resolveComponent={resolver} initialComponent={require('./LoadingScreen').default} />);
+root.render(
+  <React.StrictMode>
+    <App titleCallback={titleCallback} initialPage={init} resolveComponent={resolver} initialComponent={require('./LoadingScreen').default} />
+  </React.StrictMode>
+);

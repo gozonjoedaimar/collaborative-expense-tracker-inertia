@@ -27,7 +27,7 @@ const Index = function({ message, summary }:IndexProps) {
     red: "text-red-400"
   }
   const amountClass = (color:string) => [cellClass, (amountColors[color])].join(' ');
-  const timeClass = [cellClass, 'text-purple-400'].join(' ');
+  const timeClass = [cellClass, 'text-gray-500'].join(' ');
   return (
     <Layout>
       <Head title='Dashboard' />
