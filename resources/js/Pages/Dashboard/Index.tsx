@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/inertia-react'
 import { toast } from 'react-toastify';
 import { DashboardLayout as Layout } from "../../Shared/Layout";
 
-type IndexProps = {
+interface IndexProps {
   message: string;
   summary: {
     description: string;
@@ -20,8 +20,12 @@ function showToast () {
 
 const Index = function({ message, summary }:IndexProps) {
   const cellClass = 'border-t border-b p-2 border-slate-300';
-  const amountClass = (color:string) => [cellClass, (`text-${color}-400`)].join(' ');
-  const timeClass = [cellClass, ('text-gray-400')].join(' ');
+  const amountColors:{[key:string]: string} = {
+    green: "text-green-400",
+    red: "text-red-400"
+  }
+  const amountClass = (color:string) => [cellClass, (amountColors[color])].join(' ');
+  const timeClass = [cellClass, 'text-purple-400'].join(' ');
   return (
     <Layout>
       <Head title='Dashboard' />
@@ -40,7 +44,7 @@ const Index = function({ message, summary }:IndexProps) {
             return (
               <tr key={key}>
                 <td className={cellClass}>{row.description}</td>
-                <td className={`${amountClass(row.color)}`}>{row.amount}</td>
+                <td className={amountClass(row.color)}>{row.amount}</td>
                 <td className={timeClass}>{row.created_at}</td>
               </tr> 
             )
