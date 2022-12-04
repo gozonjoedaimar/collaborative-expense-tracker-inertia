@@ -26,7 +26,7 @@ class IncomeController extends Controller
      */
     public function save(Request $request) {
         $amount = $request->validate([
-            'amount' => ['required','numeric'],
+            'amount' => 'numeric|gte:0.01',
         ]);
 
         $expense = new Income();

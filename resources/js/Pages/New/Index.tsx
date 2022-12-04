@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent }  from "react";
+import React, { ChangeEvent, FormEvent, useState }  from "react";
 import { DistractFreeLayout as Layout } from "../../Shared/Layout";
 import { Head, useForm } from "@inertiajs/inertia-react";
 
@@ -8,6 +8,8 @@ type IndexProps = {
 
 const Index = ({ type }:IndexProps) => {
 
+  const [submitting, setSubmitting] = useState(false);
+
   const {data, setData, errors, post} = useForm({
     amount: 0
   });
@@ -15,7 +17,13 @@ const Index = ({ type }:IndexProps) => {
   const handleSubmit = (event:FormEvent) => {
     event.preventDefault();
 
-    post(`/add/${type}`);
+    post(`/add/${type}`, {
+      onFinish: () => setSubmitting(false)
+    });
+  }
+
+  const handleSubmitButton = () => {
+    setSubmitting(true);
   }
 
   const handleChange = (event:ChangeEvent<HTMLInputElement>) => {
@@ -32,13 +40,16 @@ const Index = ({ type }:IndexProps) => {
   return (
     <Layout>
       <Head title="Add" />
-      <form onSubmit={handleSubmit} className="flex flex-col">
-        <fieldset className="flex flex-col">
-          <label>
-            Amount:
-            <input type="text" name="amount" onChange={handleChange} className={inputClass} />
-          </label>
-          { errors.amount && <small className="text-red-600">{errors.amount}</small> }
+      <form onSubmit={handleSubmit}>
+        <fieldset className="flex flex-col" disabled={submitting}>
+          <div className="flex flex-col">
+            <label>
+              Amount:
+              <input type="text" name="amount" onChange={handleChange} className={inputClass} />
+            </label>
+            { errors.amount && <small className="text-red-600">{errors.amount}</small> }
+          </div>
+          <button type="submit" onClick={handleSubmitButton}>Add</button>
         </fieldset>
       </form>
     </Layout>
