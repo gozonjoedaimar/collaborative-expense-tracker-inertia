@@ -2,6 +2,7 @@ import React from 'react'
 import { Head } from '@inertiajs/inertia-react'
 import { toast } from 'react-toastify';
 import { DashboardLayout as Layout } from "../../Shared/Layout";
+import { Inertia } from '@inertiajs/inertia';
 
 interface IndexProps {
   message: string;
@@ -16,6 +17,7 @@ interface IndexProps {
 
 function showToast () {
   toast.success("Hey");
+  Inertia.visit('/no-where');
 }
 
 const Index = function({ message, summary }:IndexProps) {

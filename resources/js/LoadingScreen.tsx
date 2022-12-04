@@ -1,5 +1,5 @@
 import * as React from "react";
 
-const LoadingScreen = () => <div>Loading...</div>;
+const LoadingScreen = () => <div>Initiating...</div>;
 
 export default LoadingScreen;
